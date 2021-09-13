@@ -13,6 +13,7 @@ contract Elections {
     }
 
     struct Election {
+        string name;
         address creator;
         uint electionVoteCount;
     }
@@ -23,7 +24,7 @@ contract Elections {
 
 
 
-    function createVoting () public {
+    function createVoting (string _name) public {
         electionCounter++;
         idToElection[electionCounter] = Election(msg.sender,0);
     }
