@@ -1,7 +1,8 @@
 import React, {ChangeEvent, FC, useState} from 'react';
 import {Box, Button, createStyles, MenuItem, TextField, Theme} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
-import {ELECTION_OPTIONS, ELECTION_TYPES} from "../Constants/ELECTION_TYPES";
+import {ELECTION_OPTIONS, ELECTION_TYPES} from "../../../Constants/ELECTION_TYPES";
+import {renderCustomInputs} from "./CustomFormInputGroups";
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -10,7 +11,6 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: 'white',
             borderRadius: 10,
             width: 300,
-            height: 280,
             '& .MuiTextField-root': {
                 margin: theme.spacing(1),
                 width: '25ch',
@@ -21,7 +21,10 @@ const useStyles = makeStyles((theme: Theme) =>
             textAlign: 'center',
             justifyContent: 'center',
             marginTop: 10
-        }
+        },
+        margin: {
+            margin: theme.spacing(1),
+        },
     }),
 );
 
@@ -33,18 +36,13 @@ export const CreateElectionForm: FC = () => {
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>): void => setType(+e.target.value)
 
-    switch (type) {
 
-    }
 
     return (
         <Box className={classes.container}>
             <form className={classes.root}>
                 <div>
                     <TextField label="Election Name"/>
-                </div>
-                <div>
-                    <TextField label="Question"/>
                 </div>
                 <div>
                     <TextField
@@ -62,7 +60,8 @@ export const CreateElectionForm: FC = () => {
                         ))}
                     </TextField>
                 </div>
-                <Button variant="contained" color="primary">Create</Button>
+                {renderCustomInputs(type)}
+                <Button variant="contained" color="primary" className={classes.margin} >Create</Button>
             </form>
         </Box>
 
