@@ -3,8 +3,8 @@ import {FaUserPlus} from "react-icons/all";
 
 export const AddCandidateButton = ({handleClick} : any) => {
     const styles = {
-        color: '#52525b',
-        fontSize: 25,
+        color: 'rgba(34,57,150,0.84)',
+        fontSize: 22,
        cursor: 'pointer',
         marginLeft: 45,
         marginTop: 5

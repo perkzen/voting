@@ -1,22 +1,29 @@
-import React, {useState} from 'react';
-import {TextField} from "@material-ui/core";
-
+import React, {FC, useState} from 'react';
 import {AddCandidateButton} from "./AddCandidateButton";
-import {MdDelete} from "react-icons/all";
+import {CandidateComponent} from "./CandidateComponent";
 
-export const CandidatesInputs = () => {
+export const CandidatesInputs: FC = () => {
 
-    const [candidates, setCandidates] = useState([1,2]);
+    const [candidates, setCandidates] = useState<number[]>([1, 2]);
 
-    const addTextField = () => {
+    const addTextField = (): void => {
         setCandidates([...candidates, candidates.length + 1])
+    }
+
+    const deleteTexTField = (candidate: number): void => {
+        const filteredArr = candidates.filter(item => item !== candidate)
+        setCandidates(filteredArr)
     }
 
     return (
         <>
             <div>
                 {candidates.map((candidate, i) => {
-                    return <TextField key={i} label={`Candidate #${candidate}`}/>
+                    return <CandidateComponent
+                        key={i}
+                        candidateNumber={candidate}
+                        handleDelete={() => deleteTexTField(candidate)}
+                    />
                 })}
             </div>
             <AddCandidateButton handleClick={addTextField}/>
