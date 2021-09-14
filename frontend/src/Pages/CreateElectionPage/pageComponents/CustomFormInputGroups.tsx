@@ -1,7 +1,6 @@
 import {ELECTION_TYPES} from "../../../Constants/ELECTION_TYPES";
 import {ReferendumInputs} from "./ReferendumInputs";
-import {CandidatesInputs} from "./CandidatesInputs";
-import {MultipleInputs} from "./MultipleInputs";
+import {OptionInputs} from "./OptionInputs";
 
 
 
@@ -12,9 +11,9 @@ export const renderCustomInputs = (type:ELECTION_TYPES):  JSX.Element | undefine
             case ELECTION_TYPES.REFERENDUM:
                 return <ReferendumInputs/>
             case ELECTION_TYPES.CANDIDATES:
-                return <CandidatesInputs/>
+                return <OptionInputs optionType={ELECTION_TYPES.CANDIDATES}/>
             case ELECTION_TYPES.MULTIPLE:
-                return <MultipleInputs/>
+                return <OptionInputs optionType={ELECTION_TYPES.MULTIPLE}/>
             default:
                 console.log(type)
 

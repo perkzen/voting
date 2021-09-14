@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             backgroundColor: 'white',
             borderRadius: 10,
-            width: 300,
+            width: 340,
             '& .MuiTextField-root': {
                 margin: theme.spacing(1),
                 width: '25ch',
@@ -60,7 +60,9 @@ export const CreateElectionForm: FC = () => {
                         ))}
                     </TextField>
                 </div>
-                {renderCustomInputs(type)}
+                <div>
+                    {renderCustomInputs(type)}
+                </div>
                 <Button variant="contained" color="primary" className={classes.margin} >Create</Button>
             </form>
         </Box>
