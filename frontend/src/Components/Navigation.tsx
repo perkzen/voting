@@ -4,8 +4,8 @@ import {
     Route,
 } from "react-router-dom";
 import {CreateElectionPage} from "../Pages/CreateElectionPage/CreateElectionPage";
-import {OpenElectionsPage} from "../Pages/OpenElectionsPage";
-import Home from "../Pages/Home";
+import {OpenElectionsPage} from "../Pages/OpenElectionsPage/OpenElectionsPage";
+import Home from "../Pages/HomePage/Home";
 
 export const Navigation: FC = () => {
     return (

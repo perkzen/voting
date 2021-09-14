@@ -57,7 +57,6 @@ export const OptionInputs: FC<IProps> = ({optionType}) => {
     const [inputs, setInputs] = useState([]);
     const [state, dispatch] = useReducer(OptionInputsReducer, initialState);
 
-
     useEffect(() => {
         if (optionType === ELECTION_TYPES.CANDIDATES) {
             setInputs(state.candidates)

@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const OpenElectionsPage = () => {
+export const ElectionsListElement = () => {
     return (
         <div>
-            <p>Elections</p>
+
         </div>
     )
 }

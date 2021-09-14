@@ -2,10 +2,6 @@ import {ELECTION_TYPES} from "../../../Constants/ELECTION_TYPES";
 import {ReferendumInputs} from "./ReferendumInputs";
 import {OptionInputs} from "./OptionInputs";
 
-
-
-
-
 export const renderCustomInputs = (type:ELECTION_TYPES):  JSX.Element | undefined => {
         switch (type) {
             case ELECTION_TYPES.REFERENDUM:

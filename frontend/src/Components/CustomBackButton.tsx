@@ -6,7 +6,8 @@ export const CustomBackButton: FC = () => {
     let history = useHistory()
     const buttonStyle = {
         fontSize: 30,
-        cursor: 'pointer'
+        cursor: 'pointer',
+        marginRight: '300px'
     }
 
     return (
