@@ -5,6 +5,8 @@ export enum ELECTION_TYPES {
 }
 
 
+
+
 export const ELECTION_OPTIONS = [
     {
         value: ELECTION_TYPES.CANDIDATES,

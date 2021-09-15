@@ -3,6 +3,8 @@ import {Box, Button, createStyles, MenuItem, TextField, Theme} from "@material-u
 import {makeStyles} from "@material-ui/core/styles";
 import {ELECTION_OPTIONS, ELECTION_TYPES} from "../../../Constants/ELECTION_TYPES";
 import {renderCustomInputs} from "./CustomFormInputGroups";
+import {CustomDateTimePicker} from "./CustomDateTimePicker";
+
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -59,6 +61,9 @@ export const CreateElectionForm: FC = () => {
                             </MenuItem>
                         ))}
                     </TextField>
+                </div>
+                <div>
+                    <CustomDateTimePicker />
                 </div>
                 <div>
                     {renderCustomInputs(type)}
