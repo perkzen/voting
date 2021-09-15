@@ -112,12 +112,12 @@ export default function ElectionsTable() {
                                     {columns.map((column) => {
                                         const value = row[column.id];
 
-                                        if (column.id == 'status') {
+                                        if (column.id === 'status') {
                                             return (
                                                 <TableCell key={column.id} align={column.align}>
                                                     <Chip
                                                         label={value}
-                                                        style={{backgroundColor: value == 'OPEN' ? '#4caf50' : '#f44336', width:80}}/>
+                                                        style={{backgroundColor: value === 'OPEN' ? '#4caf50' : '#f44336', width:80}}/>
                                                 </TableCell>
                                             )
 
