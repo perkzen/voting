@@ -3,12 +3,17 @@ pragma experimental ABIEncoderV2;
 
 contract Elections {
 
+    // add expiration date
+    // only vote once per election
+    // delete election ?
+
     uint electionCounter = 0;
     uint voteCounter = 0;
 
+
     struct Vote {
         uint electionID;
-        bool value;
+        string value;
         address user;
     }
 
@@ -16,6 +21,10 @@ contract Elections {
         string name;
         address creator;
         uint electionVoteCount;
+        // expiration date
+        uint expirationTime;
+        //type of election
+        string electionType;
     }
 
     mapping (uint => Vote) public votes;
@@ -24,12 +33,14 @@ contract Elections {
 
 
 
-    function createVoting (string _name) public {
+    function createVoting (string memory _name, string memory _type, uint _expirationDate) public {
         electionCounter++;
-        idToElection[electionCounter] = Election(msg.sender,0);
+        uint expire = block.timestamp + _expirationDate;
+        idToElection[electionCounter] = Election(_name,msg.sender,0,expire, _type);
     }
 
-    function vote (uint _electionID, bool _voteValue) public {
+    function vote (uint _electionID, string memory _voteValue) public {
+       // require(block.timestamp <= idToElection[_electionID].expirationTime);
         voteCounter++;
         idToElection[_electionID].electionVoteCount++;
         votes[voteCounter]= (Vote(_electionID,_voteValue,msg.sender));
